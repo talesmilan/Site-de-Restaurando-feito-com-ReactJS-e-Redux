@@ -22,7 +22,7 @@ import {Link} from 'react-router-dom'
             <div className="col-12 col-md-5 m-1">
                 <h2 className="mb-3">Comentários</h2>
                 {comments.map((comment) => {
-                return (<><p>{comment.comment}</p>-- {comment.author}, {comment.date.substr(8, 2)}-{comment.date.substr(5, 2)}-{comment.date.substr(0, 4)}</>)
+                return (<><p>{comment.comment}</p><p>-- {comment.author}, {comment.date.substr(8, 2)}-{comment.date.substr(5, 2)}-{comment.date.substr(0, 4)}</p></>)
             })}
             </div>
         )

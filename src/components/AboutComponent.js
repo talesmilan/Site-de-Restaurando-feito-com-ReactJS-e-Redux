@@ -63,7 +63,7 @@ function About(props) {
                                 <p className="mb-0 mb-3">É melhor cortar a pizza em quatro pedaços porque
                                     Não estou com fome o suficiente para comer seis.</p>
                                 <footer className="blockquote-footer">Yogi Berra,
-                                <cite title="Source Title">A sagacidade e a sabedoria de Yogi Berra,
+                                <cite title="Source Title"> A sagacidade e a sabedoria de Yogi Berra,
                                     P. Pepe, Diversion Books, 2014</cite>
                                 </footer>
                             </blockquote>
