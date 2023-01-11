@@ -76,11 +76,15 @@ class Contact extends Component {
         }
 
         if (this.state.touched.email && email.split('').filter(x => x === '@').length !== 1) {
-            errors.email = "O email deve conter um '@'"
+            errors.email = "O email deve ter esse formato exemplo@exemplo.com"
         }
 
         if (this.state.touched.email && email.split('').filter(x => x === '.').length !== 1) {
-            errors.email = "O email deve conter um ponto"
+            errors.email = "O email deve ter esse formato exemplo@exemplo.com"
+        }
+
+        if (this.state.touched.email && email.length < 10) {
+            errors.email = "O email deve ter 10 caracteres ou mais caracteres"
         }
 
         return errors
