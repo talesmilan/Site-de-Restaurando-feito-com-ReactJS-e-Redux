@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem} from 'reactstrap' 
 import {Link} from 'react-router-dom'
+import CommentButton from './CommentButtonComponent'
 
 
     function RenderDish({dish}) {
@@ -24,11 +25,14 @@ import {Link} from 'react-router-dom'
                 {comments.map((comment) => {
                 return (<><p>{comment.comment}</p><p>-- {comment.author}, {comment.date.substr(8, 2)}-{comment.date.substr(5, 2)}-{comment.date.substr(0, 4)}</p></>)
             })}
+                <CommentButton/>
             </div>
         )
     }
 
+
 const DishDetail = (props) => {
+
     if (props.dish != null) {
         return(
             <div className="container">
