@@ -31,13 +31,15 @@ class Header extends Component {
       }
 
       handleLogin(event) {
+        event.preventDefault()
         this.toggleModal()
         alert("Nome de usuário: " + this.username.value + " Senha: " + this.password.value + " Lembre de mim? " + this.remember.checked)
-        event.preventDefault()
+        
       }
-
+ 
 
     render() {
+
         return (
             <>
                 <Navbar dark expand="md">
@@ -94,12 +96,12 @@ class Header extends Component {
                             <FormGroup>
                                 <Label htmlFor="username">Nome do usuário</Label>
                                 <Input type="text" id="username" name="username"
-                                    innerRef={(input) => this.username = input} />
+                                    innerRef={(input) => this.username = input}/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="password">Senha</Label>
                                 <Input type="password" id="password" name="password"
-                                    innerRef={(input) => this.password = input} />
+                                    innerRef={(input) => this.password = input}/>
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
