@@ -18,14 +18,14 @@ import CommentButton from './CommentButtonComponent'
             )
     }
 
-    function RenderComments({comments}) {
+    function RenderComments({comments, addComment, dishId}) {
         return (
             <div className="col-12 col-md-5 m-1">
                 <h2 className="mb-3">Comentários</h2>
                 {comments.map((comment) => {
                 return (<><p>{comment.comment}</p><p>-- {comment.author}, {comment.date.substr(8, 2)}-{comment.date.substr(5, 2)}-{comment.date.substr(0, 4)}</p></>)
             })}
-                <CommentButton/>
+                <CommentButton addComment={addComment} dishId={dishId} />
             </div>
         )
     }
@@ -47,7 +47,7 @@ const DishDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderDish dish={props.dish} />
-                    <RenderComments comments={props.comments} />
+                    <RenderComments comments={props.comments} addComment={props.addComment} dishId={props.dish.id} />
                 </div>
             </div>)
     } else {
