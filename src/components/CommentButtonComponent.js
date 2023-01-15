@@ -64,7 +64,7 @@ class CommentButton extends Component {
       handleComment(values) {
         this.toggleModal()
         //alert("Nota: " + this.state.rating + " Nome: " + this.state.name + " Comentario: " + this.state.comment)
-        this.props.addComment(this.props.dishId, this.state.rating, this.state.name, this.state.comment)
+        this.props.postComment(this.props.dishId, this.state.rating, this.state.name, this.state.comment)
         values.preventDefault()
       }
 
