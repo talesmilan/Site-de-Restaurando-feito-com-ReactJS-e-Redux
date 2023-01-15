@@ -8,7 +8,7 @@ import Footer from './FooterComponent';
 import DishDetail from './DishdetailComponent'
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import {connect} from 'react-redux'
-import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
+import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
 
 
 const mapStateToProps = state => {
@@ -22,6 +22,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
+  postFeedback: (name, telnum, email, agree, contactType, message) => dispatch(postFeedback(name, telnum, email, agree, contactType, message)),
   fetchDishes: () => { dispatch(fetchDishes())},
   fetchComments: () => dispatch(fetchComments()),
   fetchPromos: () => dispatch(fetchPromos()),
@@ -80,14 +81,14 @@ class Main extends Component {
         return (
           <div>
             <Header />
-            <Switch>
-                <Route path="/home" component={HomePage} />
-                <Route exact path='/aboutus' component={AboutPage} />
-                <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
-                <Route path="/menu/:dishId" component={DishWithId} />
-                <Route exact path='/contactus' component={Contact} />
-                <Redirect to="/home" />
-            </Switch>
+                <Switch>
+                    <Route path="/home" component={HomePage} />
+                    <Route exact path='/aboutus' component={AboutPage} />
+                    <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
+                    <Route path="/menu/:dishId" component={DishWithId} />
+                    <Route exact path='/contactus' component={() => <Contact postFeedback={this.props.postFeedback} />} />
+                    <Redirect to="/home" />
+                </Switch>
             <Footer />
           </div>
         );

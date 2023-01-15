@@ -39,8 +39,7 @@ class Contact extends Component {
     }
 
     handleSubmit(event) {
-        console.log("O state atual é: " + JSON.stringify(this.state))
-        alert("O state atual é: " + JSON.stringify(this.state))
+        this.props.postFeedback(this.state.name, this.state.telnum, this.state.email, this.state.agree, this.state.contactType, this.state.message)
         event.preventDefault()
     }
 
